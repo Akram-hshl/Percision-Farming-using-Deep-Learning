@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pnml xmlns="http://www.informatik.hu-berlin.de/top/pnml/ptNetb">
+  <shared-place initialMarking="0" invariant="&lt; inf" name="provide_control_to_farmer"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="state_complete"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="P1"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="dditional_drones"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="additional_drones"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="active_drones"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Activate_Monitoring_Drone"/>
+  <shared-place initialMarking="3" invariant="&lt; inf" name="System_requirements"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Error_Identification"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Notify_Controller"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Notify_System_Controller"/>
+  <shared-place initialMarking="1" invariant="&lt; inf" name="Activate_Survey_Drone"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Sent_Data_To_System_Controller"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Inform_Farmer"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Inform_System_Controller"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Activate_Farmar_Control"/>
+  <shared-place initialMarking="0" invariant="&lt; inf" name="Farmar_Controll"/>
+  <shared-place initialMarking="1" invariant="&lt; inf" name="Farmer_Controll"/>
+  <shared-transition name="trigger_A" player="0" urgent="false"/>
+  <shared-transition name="trigger_M" player="0" urgent="false"/>
+  <shared-transition name="perform_action_W" player="0" urgent="false"/>
+  <shared-transition name="perform_action_H" player="0" urgent="false"/>
+  <shared-transition name="T1" player="0" urgent="false"/>
+  <shared-transition name="control" player="0" urgent="false"/>
+  <shared-transition name="farmer_complete" player="0" urgent="false"/>
+  <shared-transition name="f_reset" player="0" urgent="false"/>
+  <shared-transition name="trigger_monitoring_drones" player="0" urgent="false"/>
+  <shared-transition name="deploy_weed_remover" player="0" urgent="false"/>
+  <shared-transition name="trigger_watering_drone" player="0" urgent="false"/>
+  <shared-transition name="perform_action_Watering" player="0" urgent="false"/>
+  <shared-transition name="perform_action_irrigation" player="0" urgent="false"/>
+  <shared-transition name="perform_action_pest_control" player="0" urgent="false"/>
+  <shared-transition name="sending_data" player="0" urgent="false"/>
+  <shared-transition name="perform_action_weed_remove" player="0" urgent="false"/>
+  <shared-transition name="Action_W" player="0" urgent="false"/>
+  <shared-transition name="Action_Pest_control" player="0" urgent="false"/>
+  <shared-transition name="Action_Weed_remover" player="0" urgent="false"/>
+  <shared-transition name="trigger_automatic" player="0" urgent="false"/>
+  <shared-transition name="trigger_manual" player="0" urgent="false"/>
+  <shared-transition name="additional_drone" player="0" urgent="false"/>
+  <shared-transition name="active_drone" player="0" urgent="false"/>
+  <shared-transition name="triger_pest_drone" player="0" urgent="false"/>
+  <shared-transition name="triger_watering_drone" player="0" urgent="false"/>
+  <shared-transition name="triger_weed_drone" player="0" urgent="false"/>
+  <shared-transition name="activate_drone" player="0" urgent="false"/>
+  <shared-transition name="Activate_Autonomous_Section" player="0" urgent="false"/>
+  <shared-transition name="Activate_Drone_Section" player="0" urgent="false"/>
+  <shared-transition name="Requirements_Satisfied" player="0" urgent="false"/>
+  <shared-transition name="Requirements_Not_Satisfied" player="0" urgent="false"/>
+  <shared-transition name="Reset" player="0" urgent="false"/>
+  <net active="true" id="System_Controller" type="P/T net">
+    <labels border="true" height="507" positionX="34" positionY="19" width="620">System_Controller
+</labels>
+    <labels border="true" height="251" positionX="759" positionY="410" width="485">Erro_Identification
+</labels>
+    <labels border="true" height="356" positionX="683" positionY="35" width="623">System_Requirements</labels>
+    <place displayName="true" id="Start" initialMarking="1" invariant="&lt; inf" name="Start" nameOffsetX="0" nameOffsetY="0" positionX="243" positionY="120"/>
+    <place displayName="true" id="Activate_Survey_Drone" initialMarking="1" invariant="&lt; inf" name="Activate_Survey_Drone" nameOffsetX="81" nameOffsetY="-18" positionX="529" positionY="120"/>
+    <place displayName="true" id="Received_Data" initialMarking="0" invariant="&lt; inf" name="Received_Data" nameOffsetX="107" nameOffsetY="38" positionX="559" positionY="256"/>
+    <place displayName="true" id="Set_Instruction" initialMarking="0" invariant="&lt; inf" name="Set_Instruction" nameOffsetX="0" nameOffsetY="0" positionX="409" positionY="286"/>
+    <place displayName="true" id="Wait_For_Update" initialMarking="0" invariant="&lt; inf" name="Wait_For_Update" nameOffsetX="87" nameOffsetY="51" positionX="409" positionY="436"/>
+    <place displayName="true" id="Update_instruction_list" initialMarking="0" invariant="&lt; inf" name="Update_instruction_list" nameOffsetX="51" nameOffsetY="66" positionX="123" positionY="330"/>
+    <place displayName="true" id="Error_Identification" initialMarking="0" invariant="&lt; inf" name="Error_Identification" nameOffsetX="40" nameOffsetY="48" positionX="843" positionY="510"/>
+    <place displayName="true" id="System_Failure" initialMarking="0" invariant="&lt; inf" name="System_Failure" nameOffsetX="36" nameOffsetY="-14" positionX="1039" positionY="450"/>
+    <place displayName="true" id="Inform_System_Controller" initialMarking="0" invariant="&lt; inf" name="Inform_System_Controller" nameOffsetX="94" nameOffsetY="51" positionX="1039" positionY="616"/>
+    <place displayName="true" id="Network_Error" initialMarking="0" invariant="&lt; inf" name="Network_Error" nameOffsetX="57" nameOffsetY="38" positionX="1039" positionY="496"/>
+    <place displayName="true" id="Farmer_Controll" initialMarking="1" invariant="&lt; inf" name="Farmer_Controll" nameOffsetX="122" nameOffsetY="10" positionX="1039" positionY="556"/>
+    <place displayName="true" id="Not_Connected" initialMarking="0" invariant="&lt; inf" name="Not_Connected" nameOffsetX="16" nameOffsetY="52" positionX="1023" positionY="330"/>
+    <place displayName="true" id="Connected" initialMarking="0" invariant="&lt; inf" name="Connected" nameOffsetX="0" nameOffsetY="0" positionX="1023" positionY="286"/>
+    <place displayName="true" id="Not_Sufficent" initialMarking="0" invariant="&lt; inf" name="Not_Sufficent" nameOffsetX="0" nameOffsetY="0" positionX="1023" positionY="226"/>
+    <place displayName="true" id="Sufficent" initialMarking="0" invariant="&lt; inf" name="Sufficent" nameOffsetX="0" nameOffsetY="0" positionX="1023" positionY="180"/>
+    <place displayName="true" id="Not_Identified" initialMarking="0" invariant="&lt; inf" name="Not_Identified" nameOffsetX="8" nameOffsetY="-7" positionX="1023" positionY="120"/>
+    <place displayName="true" id="Identified" initialMarking="0" invariant="&lt; inf" name="Identified" nameOffsetX="0" nameOffsetY="0" positionX="1023" positionY="76"/>
+    <place displayName="true" id="System_requirements" initialMarking="3" invariant="&lt; inf" name="System_requirements" nameOffsetX="71" nameOffsetY="70" positionX="753" positionY="226"/>
+    <transition angle="0" displayName="true" id="Check_History_Data" infiniteServer="false" name="Check_History_Data" nameOffsetX="72" nameOffsetY="-13" player="0" positionX="393" positionY="90" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Wait_for_Data" infiniteServer="false" name="Wait_for_Data" nameOffsetX="2" nameOffsetY="9" player="0" positionX="589" positionY="196" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Analysis_Data" infiniteServer="false" name="Analysis_Data" nameOffsetX="25" nameOffsetY="-11" player="0" positionX="483" positionY="270" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Activate_Autonomous_Section" infiniteServer="false" name="Activate_Autonomous_Section" nameOffsetX="0" nameOffsetY="-4" player="0" positionX="349" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Activate_Drone_Section" infiniteServer="false" name="Activate_Drone_Section" nameOffsetX="160" nameOffsetY="-4" player="0" positionX="469" positionY="360" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Received_Update" infiniteServer="false" name="Received_Update" nameOffsetX="69" nameOffsetY="57" player="0" positionX="259" positionY="466" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Update_History_Data" infiniteServer="false" name="Update_History_Data" nameOffsetX="35" nameOffsetY="-17" player="0" positionX="123" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Technical_Error" infiniteServer="false" name="Technical_Error" nameOffsetX="46" nameOffsetY="-12" player="0" positionX="919" positionY="480" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Physical_Error" infiniteServer="false" name="Physical_Error" nameOffsetX="50" nameOffsetY="55" player="0" positionX="919" positionY="586" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Restart" infiniteServer="false" name="Restart" nameOffsetX="54" nameOffsetY="-2" player="0" positionX="1173" positionY="436" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Retry" infiniteServer="false" name="Retry" nameOffsetX="59" nameOffsetY="49" player="0" positionX="1173" positionY="496" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="System_Restart" infiniteServer="false" name="System_Restart" nameOffsetX="47" nameOffsetY="51" player="0" positionX="1173" positionY="586" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Requirements_Not_Satisfied" infiniteServer="false" name="Requirements_Not_Satisfied" nameOffsetX="107" nameOffsetY="70" player="0" positionX="1173" positionY="240" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Requirements_Satisfied" infiniteServer="false" name="Requirements_Satisfied" nameOffsetX="108" nameOffsetY="-14" player="0" positionX="1173" positionY="166" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Network" infiniteServer="false" name="Network" nameOffsetX="36" nameOffsetY="-15" player="0" positionX="889" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Charge_Level" infiniteServer="false" name="Charge_Level" nameOffsetX="43" nameOffsetY="-15" player="0" positionX="889" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Location_Identification" infiniteServer="false" name="Location_Identification" nameOffsetX="57" nameOffsetY="-20" player="0" positionX="889" positionY="106" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[1,inf)" nameOffsetX="0" nameOffsetY="0" source="Start" target="Check_History_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="273" yCoord="132"/>
+      <arcpath arcPointType="false" id="1" xCoord="403" yCoord="106"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Check_History_Data" target="Activate_Survey_Drone" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="413" yCoord="106"/>
+      <arcpath arcPointType="false" id="1" xCoord="529" yCoord="132"/>
+    </arc>
+    <arc id="A2" inscription="[3,inf)" nameOffsetX="0" nameOffsetY="0" source="Activate_Survey_Drone" target="Wait_for_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="552" yCoord="147"/>
+      <arcpath arcPointType="false" id="1" xCoord="599" yCoord="211"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Wait_for_Data" target="Received_Data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="604" yCoord="226"/>
+      <arcpath arcPointType="false" id="1" xCoord="582" yCoord="258"/>
+    </arc>
+    <arc id="A4" inscription="[0,inf)" nameOffsetX="25" nameOffsetY="16" source="Received_Data" target="Analysis_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="559" yCoord="273"/>
+      <arcpath arcPointType="false" id="1" xCoord="503" yCoord="286"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Analysis_Data" target="Set_Instruction" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="493" yCoord="286"/>
+      <arcpath arcPointType="false" id="1" xCoord="439" yCoord="298"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Set_Instruction" target="Activate_Autonomous_Section" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="414" yCoord="312"/>
+      <arcpath arcPointType="false" id="1" xCoord="369" yCoord="370"/>
+    </arc>
+    <arc id="A7" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Set_Instruction" target="Activate_Drone_Section" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="432" yCoord="312"/>
+      <arcpath arcPointType="false" id="1" xCoord="479" yCoord="371"/>
+    </arc>
+    <arc id="A8" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Activate_Autonomous_Section" target="Wait_For_Update" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="369" yCoord="380"/>
+      <arcpath arcPointType="false" id="1" xCoord="414" yCoord="439"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Activate_Drone_Section" target="Wait_For_Update" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="479" yCoord="381"/>
+      <arcpath arcPointType="false" id="1" xCoord="433" yCoord="439"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Received_Update" target="Update_instruction_list" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="269" yCoord="481"/>
+      <arcpath arcPointType="false" id="1" xCoord="149" yCoord="356"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Update_instruction_list" target="Update_History_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="139" yCoord="330"/>
+      <arcpath arcPointType="false" id="1" xCoord="139" yCoord="240"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Update_History_Data" target="Start" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="143" yCoord="226"/>
+      <arcpath arcPointType="false" id="1" xCoord="247" yCoord="144"/>
+    </arc>
+    <arc id="A29" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Error_Identification" target="Technical_Error" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="872" yCoord="519"/>
+      <arcpath arcPointType="false" id="1" xCoord="929" yCoord="496"/>
+    </arc>
+    <arc id="A30" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Technical_Error" target="System_Failure" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="939" yCoord="496"/>
+      <arcpath arcPointType="false" id="1" xCoord="1039" yCoord="469"/>
+    </arc>
+    <arc id="A31" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="System_Failure" target="Restart" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1069" yCoord="463"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="451"/>
+    </arc>
+    <arc id="A32" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Technical_Error" target="Network_Error" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="939" yCoord="496"/>
+      <arcpath arcPointType="false" id="1" xCoord="1039" yCoord="509"/>
+    </arc>
+    <arc id="A33" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Network_Error" target="Retry" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1069" yCoord="511"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="511"/>
+    </arc>
+    <arc id="A34" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Error_Identification" target="Physical_Error" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="536"/>
+      <arcpath arcPointType="false" id="1" xCoord="929" yCoord="601"/>
+    </arc>
+    <arc id="A35" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Physical_Error" target="Inform_System_Controller" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="939" yCoord="601"/>
+      <arcpath arcPointType="false" id="1" xCoord="1039" yCoord="627"/>
+    </arc>
+    <arc id="A36" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Physical_Error" target="Farmer_Controll" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="939" yCoord="601"/>
+      <arcpath arcPointType="false" id="1" xCoord="1039" yCoord="574"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Wait_For_Update" target="Received_Update" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="409" yCoord="453"/>
+      <arcpath arcPointType="false" id="1" xCoord="279" yCoord="481"/>
+    </arc>
+    <arc id="A37" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Farmer_Controll" target="System_Restart" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1069" yCoord="573"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="597"/>
+    </arc>
+    <arc id="A38" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Inform_System_Controller" target="System_Restart" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1069" yCoord="628"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="607"/>
+    </arc>
+    <arc id="A28" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Not_Connected" target="Requirements_Not_Satisfied" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1051" yCoord="338"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="263"/>
+    </arc>
+    <arc id="A27" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Network" target="Not_Connected" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="316"/>
+      <arcpath arcPointType="false" id="1" xCoord="1023" yCoord="342"/>
+    </arc>
+    <arc id="A26" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Connected" target="Requirements_Satisfied" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1050" yCoord="291"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="189"/>
+    </arc>
+    <arc id="A25" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Network" target="Connected" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="316"/>
+      <arcpath arcPointType="false" id="1" xCoord="1023" yCoord="302"/>
+    </arc>
+    <arc id="A23" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Not_Sufficent" target="Requirements_Not_Satisfied" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1053" yCoord="242"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="257"/>
+    </arc>
+    <arc id="A22" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Charge_Level" target="Not_Sufficent" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="226"/>
+      <arcpath arcPointType="false" id="1" xCoord="1023" yCoord="239"/>
+    </arc>
+    <arc id="A21" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Sufficent" target="Requirements_Satisfied" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1053" yCoord="193"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="182"/>
+    </arc>
+    <arc id="A20" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Charge_Level" target="Sufficent" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="226"/>
+      <arcpath arcPointType="false" id="1" xCoord="1023" yCoord="199"/>
+    </arc>
+    <arc id="A18" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Not_Identified" target="Requirements_Not_Satisfied" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1050" yCoord="144"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="250"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Location_Identification" target="Not_Identified" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="121"/>
+      <arcpath arcPointType="false" id="1" xCoord="1023" yCoord="133"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Identified" target="Requirements_Satisfied" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1051" yCoord="98"/>
+      <arcpath arcPointType="false" id="1" xCoord="1183" yCoord="176"/>
+    </arc>
+    <arc id="A15" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Location_Identification" target="Identified" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="909" yCoord="121"/>
+      <arcpath arcPointType="false" id="1" xCoord="1023" yCoord="94"/>
+    </arc>
+    <arc id="A24" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="System_requirements" target="Network" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="781" yCoord="248"/>
+      <arcpath arcPointType="false" id="1" xCoord="899" yCoord="316"/>
+    </arc>
+    <arc id="A19" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="System_requirements" target="Charge_Level" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="783" yCoord="239"/>
+      <arcpath arcPointType="false" id="1" xCoord="899" yCoord="226"/>
+    </arc>
+    <arc id="A14" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="System_requirements" target="Location_Identification" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="780" yCoord="230"/>
+      <arcpath arcPointType="false" id="1" xCoord="899" yCoord="121"/>
+    </arc>
+  </net>
+  <net active="true" id="Drone_and_Autonomous_vehicles" type="P/T net">
+    <labels border="true" height="247" positionX="91" positionY="391" width="646">Autonomous Vehicles Section</labels>
+    <labels border="true" height="367" positionX="601" positionY="1" width="586">Additional Drones Section</labels>
+    <labels border="true" height="263" positionX="31" positionY="61" width="166">Survey Drone Section
+</labels>
+    <place displayName="true" id="Activate_Survey_Drone" initialMarking="1" invariant="&lt; inf" name="Activate_Survey_Drone" nameOffsetX="87" nameOffsetY="56" positionX="103" positionY="239"/>
+    <place displayName="true" id="Get_instruction_and_data" initialMarking="0" invariant="&lt; inf" name="Get_instruction_and_data" nameOffsetX="88" nameOffsetY="-6" positionX="853" positionY="104"/>
+    <place displayName="true" id="Start_Spray_Pesticide" initialMarking="0" invariant="&lt; inf" name="Start_Spray_Pesticide" nameOffsetX="75" nameOffsetY="54" positionX="1123" positionY="35"/>
+    <place displayName="true" id="Collect_Harvesting_Data" initialMarking="0" invariant="&lt; inf" name="Collect_Harvesting_Data" nameOffsetX="72" nameOffsetY="56" positionX="688" positionY="254"/>
+    <place displayName="true" id="Start_irrigration" initialMarking="0" invariant="&lt; inf" name="Start_irrigration" nameOffsetX="102" nameOffsetY="49" positionX="1080" positionY="165"/>
+    <place displayName="true" id="controller" initialMarking="0" invariant="&lt; inf" name="controller" nameOffsetX="34" nameOffsetY="-14" positionX="270" positionY="75"/>
+    <place displayName="true" id="Get_instruction_data" initialMarking="0" invariant="&lt; inf" name="Get_instruction_data" nameOffsetX="134" nameOffsetY="-8" positionX="420" positionY="435"/>
+    <place displayName="true" id="Start_Weed_removing" initialMarking="0" invariant="&lt; inf" name="Start_Weed_removing" nameOffsetX="85" nameOffsetY="56" positionX="660" positionY="555"/>
+    <place displayName="true" id="Start_Harvesting" initialMarking="0" invariant="&lt; inf" name="Start_Harvesting" nameOffsetX="15" nameOffsetY="50" positionX="270" positionY="570"/>
+    <place displayName="true" id="System_requirements" initialMarking="3" invariant="&lt; inf" name="System_requirements" nameOffsetX="40" nameOffsetY="-10" positionX="390" positionY="165"/>
+    <place displayName="true" id="Error_Identification" initialMarking="0" invariant="&lt; inf" name="Error_Identification" nameOffsetX="121" nameOffsetY="49" positionX="435" positionY="240"/>
+    <place displayName="true" id="Collect_Weed_Data" initialMarking="0" invariant="&lt; inf" name="Collect_Weed_Data" nameOffsetX="136" nameOffsetY="27" positionX="930" positionY="330"/>
+    <transition angle="90" displayName="true" id="Monitoring_and_sent_data" infiniteServer="false" name="Monitoring_and_sent_data" nameOffsetX="63" nameOffsetY="-21" player="0" positionX="118" positionY="134" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Finish_and_Sent_Data" infiniteServer="false" name="Finish_and_Sent_Data" nameOffsetX="130" nameOffsetY="42" player="0" positionX="1033" positionY="80" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Harvesting_Drone" infiniteServer="false" name="Start_Harvesting_Drone" nameOffsetX="20" nameOffsetY="43" player="0" positionX="703" positionY="194" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Save_and_Sent_Data" infiniteServer="false" name="Save_and_Sent_Data" nameOffsetX="75" nameOffsetY="47" player="0" positionX="778" positionY="224" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Pest_Control_Drone" infiniteServer="false" name="Start_Pest_Control_Drone" nameOffsetX="74" nameOffsetY="-4" player="0" positionX="1003" positionY="35" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Watering_Drone" infiniteServer="false" name="Start_Watering_Drone" nameOffsetX="143" nameOffsetY="36" player="0" positionX="1020" positionY="120" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Complete_And_Sent_Data" infiniteServer="false" name="Complete_And_Sent_Data" nameOffsetX="128" nameOffsetY="57" player="0" positionX="975" positionY="180" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Activate_Drone_Section" infiniteServer="false" name="Activate_Drone_Section" nameOffsetX="89" nameOffsetY="38" player="0" positionX="675" positionY="45" priority="0" urgent="false"/>
+    <transition angle="90" displayName="true" id="Activate_Autonomous_Section" infiniteServer="false" name="Activate_Autonomous_Section" nameOffsetX="28" nameOffsetY="34" player="0" positionX="330" positionY="405" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Weed_Removing_Vehicles" infiniteServer="false" name="Start_Weed_Removing_Vehicles" nameOffsetX="143" nameOffsetY="-12" player="0" positionX="585" positionY="465" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Sent_finishind_Confirmation" infiniteServer="false" name="Sent_finishind_Confirmation" nameOffsetX="84" nameOffsetY="61" player="0" positionX="525" positionY="570" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Harvesting_Vehicles" infiniteServer="false" name="Start_Harvesting_Vehicles" nameOffsetX="13" nameOffsetY="42" player="0" positionX="240" positionY="480" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Sent_completion_data" infiniteServer="false" name="Sent_completion_data" nameOffsetX="69" nameOffsetY="42" player="0" positionX="375" positionY="555" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T28" infiniteServer="false" name="T28" nameOffsetX="0" nameOffsetY="0" player="0" positionX="360" positionY="240" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T29" infiniteServer="false" name="T29" nameOffsetX="0" nameOffsetY="0" player="0" positionX="525" positionY="135" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T34" infiniteServer="false" name="T34" nameOffsetX="0" nameOffsetY="0" player="0" positionX="405" positionY="300" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="T35" infiniteServer="false" name="T35" nameOffsetX="0" nameOffsetY="0" player="0" positionX="525" positionY="210" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Saving_and_Sent_Data" infiniteServer="false" name="Saving_and_Sent_Data" nameOffsetX="143" nameOffsetY="34" player="0" positionX="930" positionY="240" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Start_Weed_Monitoring_Drone" infiniteServer="false" name="Start_Weed_Monitoring_Drone" nameOffsetX="40" nameOffsetY="50" player="0" positionX="870" positionY="270" priority="0" urgent="false"/>
+    <arc id="A48" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Activate_Survey_Drone" target="Monitoring_and_sent_data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="120" yCoord="239"/>
+      <arcpath arcPointType="false" id="1" xCoord="132" yCoord="153"/>
+    </arc>
+    <arc id="A51" inscription="[0,inf)" nameOffsetX="3" nameOffsetY="-6" source="Start_Spray_Pesticide" target="Finish_and_Sent_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1124" yCoord="56"/>
+      <arcpath arcPointType="false" id="1" xCoord="1052" yCoord="95"/>
+    </arc>
+    <arc id="A52" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Finish_and_Sent_Data" target="Get_instruction_and_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1042" yCoord="95"/>
+      <arcpath arcPointType="false" id="1" xCoord="882" yCoord="116"/>
+    </arc>
+    <arc id="A53" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_and_data" target="Start_Harvesting_Drone" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="855" yCoord="126"/>
+      <arcpath arcPointType="false" id="1" xCoord="722" yCoord="209"/>
+    </arc>
+    <arc id="A54" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Harvesting_Drone" target="Collect_Harvesting_Data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="718" yCoord="224"/>
+      <arcpath arcPointType="false" id="1" xCoord="707" yCoord="254"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Collect_Harvesting_Data" target="Save_and_Sent_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="717" yCoord="263"/>
+      <arcpath arcPointType="false" id="1" xCoord="787" yCoord="239"/>
+    </arc>
+    <arc id="A7" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Save_and_Sent_Data" target="Get_instruction_and_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="797" yCoord="239"/>
+      <arcpath arcPointType="false" id="1" xCoord="860" yCoord="131"/>
+    </arc>
+    <arc id="A8" inscription="[0,inf)" nameOffsetX="19" nameOffsetY="15" source="Get_instruction_and_data" target="Start_Pest_Control_Drone" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="881" yCoord="112"/>
+      <arcpath arcPointType="false" id="1" xCoord="1012" yCoord="50"/>
+    </arc>
+    <arc id="A9" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Pest_Control_Drone" target="Start_Spray_Pesticide" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1022" yCoord="50"/>
+      <arcpath arcPointType="false" id="1" xCoord="1123" yCoord="50"/>
+    </arc>
+    <arc id="A10" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_and_data" target="Start_Watering_Drone" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="882" yCoord="120"/>
+      <arcpath arcPointType="false" id="1" xCoord="1029" yCoord="135"/>
+    </arc>
+    <arc id="A11" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Watering_Drone" target="Start_irrigration" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1039" yCoord="135"/>
+      <arcpath arcPointType="false" id="1" xCoord="1083" yCoord="170"/>
+    </arc>
+    <arc id="A12" inscription="[0,inf)" nameOffsetX="8" nameOffsetY="19" source="Start_irrigration" target="Complete_And_Sent_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="1080" yCoord="182"/>
+      <arcpath arcPointType="false" id="1" xCoord="994" yCoord="195"/>
+    </arc>
+    <arc id="A13" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Complete_And_Sent_Data" target="Get_instruction_and_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="984" yCoord="195"/>
+      <arcpath arcPointType="false" id="1" xCoord="880" yCoord="127"/>
+    </arc>
+    <arc id="A14" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Monitoring_and_sent_data" target="controller" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="147" yCoord="149"/>
+      <arcpath arcPointType="false" id="1" xCoord="271" yCoord="95"/>
+    </arc>
+    <arc id="A16" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Activate_Drone_Section" target="Get_instruction_and_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="704" yCoord="60"/>
+      <arcpath arcPointType="false" id="1" xCoord="853" yCoord="113"/>
+    </arc>
+    <arc id="A18" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Activate_Autonomous_Section" target="Get_instruction_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="359" yCoord="420"/>
+      <arcpath arcPointType="false" id="1" xCoord="421" yCoord="444"/>
+    </arc>
+    <arc id="A19" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_data" target="Start_Weed_Removing_Vehicles" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="449" yCoord="452"/>
+      <arcpath arcPointType="false" id="1" xCoord="594" yCoord="480"/>
+    </arc>
+    <arc id="A20" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Weed_Removing_Vehicles" target="Start_Weed_removing" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="604" yCoord="480"/>
+      <arcpath arcPointType="false" id="1" xCoord="665" yCoord="558"/>
+    </arc>
+    <arc id="A21" inscription="[0,inf)" nameOffsetX="12" nameOffsetY="9" source="Start_Weed_removing" target="Sent_finishind_Confirmation" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="660" yCoord="571"/>
+      <arcpath arcPointType="false" id="1" xCoord="544" yCoord="585"/>
+    </arc>
+    <arc id="A22" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Sent_finishind_Confirmation" target="Get_instruction_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="534" yCoord="585"/>
+      <arcpath arcPointType="false" id="1" xCoord="443" yCoord="462"/>
+    </arc>
+    <arc id="A23" inscription="[0,inf)" nameOffsetX="14" nameOffsetY="20" source="Get_instruction_data" target="Start_Harvesting_Vehicles" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="420" yCoord="453"/>
+      <arcpath arcPointType="false" id="1" xCoord="259" yCoord="495"/>
+    </arc>
+    <arc id="A24" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Harvesting_Vehicles" target="Start_Harvesting" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="255" yCoord="510"/>
+      <arcpath arcPointType="false" id="1" xCoord="279" yCoord="571"/>
+    </arc>
+    <arc id="A25" inscription="[0,inf)" nameOffsetX="38" nameOffsetY="-2" source="Start_Harvesting" target="Sent_completion_data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="299" yCoord="582"/>
+      <arcpath arcPointType="false" id="1" xCoord="384" yCoord="570"/>
+    </arc>
+    <arc id="A26" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Sent_completion_data" target="Get_instruction_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="390" yCoord="555"/>
+      <arcpath arcPointType="false" id="1" xCoord="429" yCoord="463"/>
+    </arc>
+    <arc id="A15" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="controller" target="Activate_Drone_Section" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="299" yCoord="88"/>
+      <arcpath arcPointType="false" id="1" xCoord="674" yCoord="60"/>
+    </arc>
+    <arc id="A17" inscription="[0,inf)" nameOffsetX="-12" nameOffsetY="2" source="controller" target="Activate_Autonomous_Section" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="283" yCoord="104"/>
+      <arcpath arcPointType="false" id="1" xCoord="268" yCoord="333"/>
+      <arcpath arcPointType="false" id="2" xCoord="344" yCoord="414"/>
+    </arc>
+    <arc id="A28" inscription="[0,30]" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_data" target="T28" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="430" yCoord="435"/>
+      <arcpath arcPointType="false" id="1" xCoord="375" yCoord="270"/>
+    </arc>
+    <arc id="A29" inscription="[0,40]" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_and_data" target="T29" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="853" yCoord="120"/>
+      <arcpath arcPointType="false" id="1" xCoord="544" yCoord="150"/>
+    </arc>
+    <arc id="A30" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T29" target="System_requirements" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="534" yCoord="150"/>
+      <arcpath arcPointType="false" id="1" xCoord="419" yCoord="176"/>
+    </arc>
+    <arc id="A31" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T28" target="System_requirements" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="375" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="398" yCoord="193"/>
+    </arc>
+    <arc id="A32" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_data" target="T34" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="433" yCoord="435"/>
+      <arcpath arcPointType="false" id="1" xCoord="420" yCoord="330"/>
+    </arc>
+    <arc id="A33" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T34" target="Error_Identification" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="420" yCoord="300"/>
+      <arcpath arcPointType="false" id="1" xCoord="441" yCoord="267"/>
+    </arc>
+    <arc id="A34" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_and_data" target="T35" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="853" yCoord="123"/>
+      <arcpath arcPointType="false" id="1" xCoord="544" yCoord="225"/>
+    </arc>
+    <arc id="A35" inscription="1" nameOffsetX="0" nameOffsetY="0" source="T35" target="Error_Identification" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="534" yCoord="225"/>
+      <arcpath arcPointType="false" id="1" xCoord="464" yCoord="249"/>
+    </arc>
+    <arc id="A36" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Get_instruction_and_data" target="Start_Weed_Monitoring_Drone" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="869" yCoord="133"/>
+      <arcpath arcPointType="false" id="1" xCoord="885" yCoord="270"/>
+    </arc>
+    <arc id="A37" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Start_Weed_Monitoring_Drone" target="Collect_Weed_Data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="889" yCoord="285"/>
+      <arcpath arcPointType="false" id="1" xCoord="934" yCoord="334"/>
+    </arc>
+    <arc id="A38" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Collect_Weed_Data" target="Saving_and_Sent_Data" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="945" yCoord="330"/>
+      <arcpath arcPointType="false" id="1" xCoord="945" yCoord="270"/>
+    </arc>
+    <arc id="A39" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Saving_and_Sent_Data" target="Get_instruction_and_data" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="945" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="876" yCoord="131"/>
+    </arc>
+  </net>
+  <net active="true" id="Farmer_Control" type="P/T net">
+    <place displayName="true" id="Farmer_Controll" initialMarking="1" invariant="&lt; inf" name="Farmer_Controll" nameOffsetX="0" nameOffsetY="0" positionX="330" positionY="315"/>
+    <place displayName="true" id="Go_For_Mantanance" initialMarking="0" invariant="&lt; inf" name="Go_For_Mantanance" nameOffsetX="149" nameOffsetY="-6" positionX="675" positionY="240"/>
+    <place displayName="true" id="Update_Controller" initialMarking="0" invariant="&lt; inf" name="Update_Controller" nameOffsetX="64" nameOffsetY="57" positionX="645" positionY="420"/>
+    <transition angle="0" displayName="true" id="Check_Error_Notification" infiniteServer="false" name="Check_Error_Notification" nameOffsetX="80" nameOffsetY="-14" player="0" positionX="525" positionY="225" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="Solved_Error" infiniteServer="false" name="Solved_Error" nameOffsetX="110" nameOffsetY="24" player="0" positionX="720" positionY="330" priority="0" urgent="false"/>
+    <transition angle="0" displayName="true" id="ReStart_System" infiniteServer="false" name="ReStart_System" nameOffsetX="-22" nameOffsetY="28" player="0" positionX="525" positionY="450" priority="0" urgent="false"/>
+    <arc id="A0" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Farmer_Controll" target="Check_Error_Notification" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="358" yCoord="323"/>
+      <arcpath arcPointType="false" id="1" xCoord="534" yCoord="240"/>
+    </arc>
+    <arc id="A1" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Check_Error_Notification" target="Go_For_Mantanance" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="544" yCoord="240"/>
+      <arcpath arcPointType="false" id="1" xCoord="675" yCoord="253"/>
+    </arc>
+    <arc id="A2" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Go_For_Mantanance" target="Solved_Error" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="697" yCoord="267"/>
+      <arcpath arcPointType="false" id="1" xCoord="735" yCoord="330"/>
+    </arc>
+    <arc id="A3" inscription="1" nameOffsetX="0" nameOffsetY="0" source="Solved_Error" target="Update_Controller" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="729" yCoord="345"/>
+      <arcpath arcPointType="false" id="1" xCoord="669" yCoord="423"/>
+    </arc>
+    <arc id="A6" inscription="[0,inf)" nameOffsetX="0" nameOffsetY="0" source="Update_Controller" target="ReStart_System" type="timed" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="645" yCoord="438"/>
+      <arcpath arcPointType="false" id="1" xCoord="544" yCoord="465"/>
+    </arc>
+    <arc id="A5" inscription="1" nameOffsetX="0" nameOffsetY="0" source="ReStart_System" target="Farmer_Controll" type="normal" weight="1">
+      <arcpath arcPointType="false" id="0" xCoord="534" yCoord="465"/>
+      <arcpath arcPointType="false" id="1" xCoord="357" yCoord="338"/>
+    </arc>
+  </net>
+  <query active="true" algorithmOption="CERTAIN_ZERO" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="controller_model-liveness" overApproximation="true" pTrie="true" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" type="Default" useQueryReduction="true" useSiphonTrapAnalysis="false" useStubbornReduction="true" useTarOption="false" useTarjan="false">
+    <formula>
+      <exists-path>
+        <finally>
+          <negation>
+            <conjunction>
+              <integer-eq>
+                <tokens-count>
+                  <place>System_Controller.Network_Error</place>
+                </tokens-count>
+                <integer-constant>0</integer-constant>
+              </integer-eq>
+              <integer-eq>
+                <tokens-count>
+                  <place>System_Controller.Received_Data</place>
+                </tokens-count>
+                <integer-constant>0</integer-constant>
+              </integer-eq>
+            </conjunction>
+          </negation>
+        </finally>
+      </exists-path>
+    </formula>
+  </query>
+  <query active="true" algorithmOption="CERTAIN_ZERO" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="AUTOMATIC" gcd="true" hashTableSize="MB_16" inclusionPlaces="*NONE*" name="system_controller-Reachability" overApproximation="true" pTrie="true" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" type="Default" useQueryReduction="true" useSiphonTrapAnalysis="false" useStubbornReduction="true" useTarOption="false" useTarjan="false">
+    <formula>
+      <exists-path>
+        <finally>
+          <integer-ge>
+            <tokens-count>
+              <place>System_Controller.Update_instruction_list</place>
+            </tokens-count>
+            <integer-constant>1</integer-constant>
+          </integer-ge>
+        </finally>
+      </exists-path>
+    </formula>
+  </query>
+  <query active="true" algorithmOption="CERTAIN_ZERO" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="false" hashTableSize="null" inclusionPlaces="*NONE*" name="deadlock_free" overApproximation="false" pTrie="true" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="DFS" symmetry="false" timeDarts="false" traceOption="NONE" type="Default" useQueryReduction="true" useSiphonTrapAnalysis="false" useStubbornReduction="true" useTarOption="false" useTarjan="false">
+    <formula>
+      <all-paths>
+        <globally>
+          <negation>
+            <deadlock/>
+          </negation>
+        </globally>
+      </all-paths>
+    </formula>
+  </query>
+  <query active="true" algorithmOption="CERTAIN_ZERO" approximationDenominator="2" capacity="4" discreteInclusion="false" enableOverApproximation="false" enableUnderApproximation="false" extrapolationOption="null" gcd="true" hashTableSize="null" inclusionPlaces="*NONE*" name="farmer_controller-Reachability" overApproximation="true" pTrie="true" reduction="true" reductionOption="VerifyTAPNdiscreteVerification" searchOption="HEURISTIC" symmetry="true" timeDarts="false" traceOption="NONE" type="Default" useQueryReduction="true" useSiphonTrapAnalysis="false" useStubbornReduction="true" useTarOption="false" useTarjan="false">
+    <formula>
+      <exists-path>
+        <finally>
+          <integer-ge>
+            <tokens-count>
+              <place>Farmer_Control.Update_Controller</place>
+            </tokens-count>
+            <integer-constant>1</integer-constant>
+          </integer-ge>
+        </finally>
+      </exists-path>
+    </formula>
+  </query>
+  <k-bound bound="3"/>
+  <feature isGame="false" isTimed="true"/>
+</pnml>
